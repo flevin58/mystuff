@@ -9,11 +9,12 @@ alias got="go test -v ./..."
 alias goi="go install"
 alias gou="go clean -i"
 alias gob="go build"
-alias godev="cd $HOME/Documents/Sviluppo"
-alias gogo="cd $HOME/Documents/Sviluppo/Go"
+alias godev="cd $HOME/Develop"
+alias gogo="cd $HOME/Develop/Go"
 # Add rust-related aliases
 alias gorust="cd $HOME/Documents/Sviluppo/Rust"
 # Add more advanced aliases
+alias edit="$EDITOR"
 alias remove="rm -rf"
 alias reload="source ~/.zshrc"
 alias vim=nvim

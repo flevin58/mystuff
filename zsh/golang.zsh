@@ -1,4 +1,4 @@
 # Add Go functionality
-export GOPATH=/Volumes/Fernando/Sviluppo/Go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 

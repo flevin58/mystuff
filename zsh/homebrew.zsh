@@ -1,3 +1,3 @@
-
-# Add mystuff and homebrew options
-export PATH=$MYSTUFF/bin:/opt/homebrew/bin:$PATH
+# homebrew.zsh
+export HOMEBREW_NO_ANALYTICS=1                                                                              
+export PATH=/opt/homebrew/bin:$PATH

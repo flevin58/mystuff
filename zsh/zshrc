@@ -1,6 +1,7 @@
 # Add mystuff path
 export MYSTUFF=$HOME/mystuff
 export EDITOR=nvim
+export PATH=$MYSTUFF/bin:$MYSTUFF/scripts:$PATH
 
 # Do the magic!
 for zshfile in $MYSTUFF/zsh/*.zsh; do source $zshfile; done

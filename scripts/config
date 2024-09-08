@@ -1,10 +1,37 @@
 #!/bin/zsh
 
-EDITOR=nvim
+if [ -z $EDITOR ]
+then
+	echo ""
+	echo "please set the EDITOR env to the editor of your choice"
+	exit 1
+fi
 
-choice=$(gum choose "zsh" "starship" --header="Choose a configuration file to edit")
-case $choice in
-	"zsh") echo "zshell is awesome!";;
-	"starship") $EDITOR $HOME/.config/starship.toml ;;
-esac
+[ -z $MYSTUFF ] && export MYSTUFF=$HOME/mystuff
 
+main_menu() {
+	exit="<exit>"
+	prompt="Choose a configuration file to edit or $exit"
+	choice=$(gum choose $exit "config" "kitty" "zsh" "starship" --header=$prompt)
+	case $choice in
+		"config") $EDITOR $MYSTUFF/scripts/config ;;
+		"kitty") $EDITOR $MYSTUFF/kitty/kitty.conf ;;
+		"starship") $EDITOR $MYSTUFF/starship/starship.toml ;;
+		"zsh") zsh_menu ;;
+		$exit) exit 0 ;;
+	esac
+}
+
+zsh_menu() {
+	back="<back>"
+	prompt="Choose a zsh configuration file to edit or $back"
+	choice=$(ls -1 $MYSTUFF/zsh/* | xargs basename | xargs gum choose --header=$prompt $back)
+	if [ $choice = $back ]
+	then
+		main_menu
+	else
+		$EDITOR "$MYSTUFF/zsh/$choice"
+	fi
+}
+
+main_menu
