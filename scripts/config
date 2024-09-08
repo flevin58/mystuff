@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+EDITOR=nvim
+
+choice=$(gum choose "zsh" "starship" --header="Choose a configuration file to edit")
+case $choice in
+	"zsh") echo "zshell is awesome!";;
+	"starship") $EDITOR $HOME/.config/starship.toml ;;
+esac
+

@@ -1,0 +1,15 @@
+# Add mystuff path
+export MYSTUFF=$HOME/mystuff
+export EDITOR=nvim
+
+# Do the magic!
+for zshfile in $MYSTUFF/zsh/*.zsh; do source $zshfile; done
+
+# Add zsh plugins
+plugins=(
+	zsh-sutosuggestions
+	zsh-syntax-highlighting
+)
+
+# Add starship command prompt
+eval "$(starship init zsh)"
